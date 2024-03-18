@@ -1,0 +1,40 @@
+:root {
+  --main-bg: #fff;
+  --logo-color: #0753f0;
+  --bg-btn: #305bb5;
+  --bg-hover-btn: #0c3895;
+  --btn-text-color: #fff;
+  --dashboard-bar: #fff;
+  --dashboard-app-bar: #99baff;
+  --dashboard-bar-text: #000;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+.MuiInputBase-root-MuiOutlinedInput-root,
+.MuiInputBase-root-MuiOutlinedInput-root {
+  border-radius: 2rem !important;
+  padding-right: 0 !important;
+}
+
+.shine-button:hover::before {
+  content: "";
+  width: 100px;
+  height: 100%;
+  position: absolute;
+  background-image: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0) 70%
+  );
+  top: 0;
+  left: -100px;
+  animation: shine 3s infinite linear;
+}
+
+.disabled-shine-button:hover::before {
+  animation: none !important;
+}
