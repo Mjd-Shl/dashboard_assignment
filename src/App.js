@@ -225,9 +225,14 @@ function App() {
                 onClick={handleDrawerToggle}
                 sx={{ mr: 2, display: { sm: "none" } }}
               >
-                <MenuIcon />
+                <MenuIcon className="text-[var(--dashboard-app-bar-text)]" />
               </IconButton>
-              <Typography variant="h6" noWrap component="div">
+              <Typography
+                variant="h6"
+                noWrap
+                component="div"
+                className="text-[var(--dashboard-app-bar-text)] !font-semibold"
+              >
                 Dashboard
               </Typography>
             </Toolbar>
@@ -239,7 +244,7 @@ function App() {
             sx={{
               width: { sm: drawerWidth },
               flexShrink: { sm: 0 },
-              boxShadow: "1px 1px 50px #ccc",
+              // boxShadow: "1px 1px 50px #ccc",
             }}
             aria-label="mailbox folders"
           >

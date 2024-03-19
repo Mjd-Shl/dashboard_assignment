@@ -3,11 +3,14 @@ import Highcharts from "highcharts/highstock";
 import PieChart from "highcharts-react-official";
 
 import Paper from "@mui/material/Paper";
+import { useMediaQuery } from "@mui/material";
 
 const DashboardPieChart = ({ title, data }) => {
+  const isMobile = useMediaQuery("(max-width:600px)");
   const options = {
     chart: {
       type: "pie",
+      height: isMobile ? 300 : 250,
     },
     title: {
       text: title,
@@ -26,17 +29,45 @@ const DashboardPieChart = ({ title, data }) => {
         showInLegend: true,
       },
     },
+    legend: !isMobile
+      ? {
+          align: "right", // or 'left'
+          verticalAlign: "middle",
+          layout: "vertical",
+          itemMarginTop: 10,
+          itemMarginBottom: 10,
+        }
+      : {},
     series: [
       {
         name: "Users",
         colorByPoint: true,
-        data: data,
+        data: data.map((item, index) => ({
+          name: item.name,
+          y: item.y,
+          colors: Highcharts.map(
+            Highcharts.getOptions().colors,
+            function (color) {
+              return {
+                radialGradient: {
+                  cx: 0.5,
+                  cy: 0.3,
+                  r: 0.7,
+                },
+                stops: [
+                  [0, color],
+                  [1, Highcharts.color(color).brighten(-0.3).get("rgb")],
+                ],
+              };
+            }
+          ),
+        })),
       },
     ],
   };
 
   return (
-    <div className="w-full sm:w-[40%] transform hover:scale-[1.05] transition duration-300 ease-in-out cursor-pointer">
+    <div className="w-full  h-full transform hover:scale-[1.05] transition duration-300 ease-in-out cursor-pointer">
       <Paper elevation={3}>
         {data?.length > 0 ? (
           <PieChart highcharts={Highcharts} options={options} />

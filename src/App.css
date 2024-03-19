@@ -1,16 +1,21 @@
 :root {
-  --main-bg: #fff;
+  --main-bg: #f1f1f1;
   --logo-color: #0753f0;
   --bg-btn: #305bb5;
   --bg-hover-btn: #0c3895;
   --btn-text-color: #fff;
   --dashboard-bar: #fff;
-  --dashboard-app-bar: #99baff;
+  --dashboard-app-bar: #fff;
+  --dashboard-app-bar-text: #000;
   --dashboard-bar-text: #000;
+  --dashboard-paper-icon: #006ad7;
+  --dashboard-paper-text: #21277b;
+  --dashboard-paper-value: #000;
 }
 
 html {
   overflow-x: hidden;
+  background-color: var(--main-bg);
 }
 
 .MuiInputBase-root-MuiOutlinedInput-root,

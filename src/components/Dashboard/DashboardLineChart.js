@@ -39,6 +39,9 @@ const DashboardLineChart = () => {
   }, [usersList]);
 
   const options = {
+    chart: {
+      height: 515,
+    },
     title: {
       text: "Cumulative Number of Users Created Over Time",
     },

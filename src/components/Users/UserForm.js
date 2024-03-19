@@ -64,7 +64,7 @@ const UserForm = () => {
   };
 
   return (
-    <Box className={"h-full sm:flex sm:flex-col justify-center items-center"}>
+    <Box className={"h-full sm:flex sm:flex-col justify-center items-center "}>
       <Breadcrumbs page={"Users"} main={false} text={"Create new"} />
       <Box boxShadow={4} borderRadius={4} p={4} width="100%" maxWidth={400}>
         {/* Header */}
@@ -105,7 +105,7 @@ const UserForm = () => {
             onSubmit={handleSubmit}
           >
             {({ errors, touched }) => (
-              <Form className="space-y-4">
+              <Form className="space-y-4 bg-[var(--main-bg)]">
                 {/* Name Field */}
                 <Field
                   name="name"
